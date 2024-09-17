@@ -1,20 +1,12 @@
-async function updateProgressBars(pokedexNr) {
-    let resSingle = await fetch(singlePokemon_URL + pokedexNr.toString());
-    let resSinglePokemon = await resSingle.json();  
-
-
+async function updateProgressBars(pokemonNr) {
+  
     const progressBars = document.querySelectorAll('.progress-bar'); // Wähle alle Balken aus
   
-/*     progressBars.forEach((bar, index) => {
-        // Beispiel: Der Fortschritt für jeden Balken wird zufällig geändert
-        let progress = Math.floor(Math.random() * 101); // Zufallszahl zwischen 0 und 100
-        bar.style.width = `${progress}%`; // Aktualisiere die Breite des Fortschrittsbalkens
-        bar.setAttribute('data-progress', progress); // Optional: Setze das neue Fortschrittsattribut
-    }); */
+    const pokemonData = await getPokemonData(pokemonNr);
 
     progressBars.forEach((bar, index) => {
         
-        let progress = resSinglePokemon.stats[index].base_stat;
+        let progress = pokemonData.stats[index].base_stat;
         let progressProcent;
         if(index = 0){
             progressProcent = (progress/255*100).toFixed();//255 ist der höchste Basis-HP-Wert, den in Pokemon hat 
