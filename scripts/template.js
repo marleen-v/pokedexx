@@ -92,7 +92,7 @@ function getInfoTemplateHTML(pokemonNr, pokemonData) {
           <div class="card-menu d-flex">
             <button class="menu-left-btn menu-btn d-flex" onclick="showMainInfo(${pokemonNr})">main</button>
             <button class="menu-center-btn menu-btn d-flex" onclick="showStatsInfo(${pokemonNr})">stats</button>
-            <button class="menu-right-btn menu-btn d-flex" onclick="showEvoChainInfo(${pokemonNr})">evo-chain</button>
+            <button class="menu-right-btn menu-btn d-flex" onclick="showEvolutionChain(${pokemonNr})">evo-chain</button>
           </div>
           <div class="card-info" id="card-info">
 
