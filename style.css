@@ -1,0 +1,324 @@
+@font-face {
+  font-family: "raleway";
+  src: url("./assets/fonts/raleway-regular-webfont.woff2") format("woff2"),
+    url("./assets/fonts/raleway-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 3rem;
+  padding-bottom: 25px;
+  color: aliceblue;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 500;
+  color: #fff;
+}
+
+h3 {
+  margin: 10px 0;
+}
+
+body {
+  background-color: #223d6b;
+}
+
+/* ------------------------------------Header-------------------------------------------- */
+
+header {
+  background-image: linear-gradient(140deg, #272b3a 20%, #043258 75%);
+  height: 80px;
+  width: 100%;
+  display: flex;
+  padding: 10px 50px;
+  box-shadow: 1px 1px 2px 1px rgb(0 0 0 / 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+}
+
+.header-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+/* ------------------------------------Main Content-------------------------------------------- */
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  padding: 50px;
+  flex: auto;
+
+  
+}
+
+#content {
+  display:flex;
+  width: 100%;
+  max-width: 1290px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card-small-btn{
+height: 250px;
+width: 250px;
+box-shadow: 9px 8px 0px 0px #242632a6;
+border-radius:20px;
+}
+
+.card-small{
+height: 250px;
+width: 250px;
+border-radius:20px;
+display: flex;
+flex-direction: column;
+
+}
+
+ .card-small-title{
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 50px;
+  padding-top:1rem;
+} 
+
+.card-small-nr {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 24px;
+  color:#fff;
+  
+}
+
+.card-small-img {
+  background-image: url("./assets/img/pokeball-weiss2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  justify-content: center;
+  margin-bottom: -40px;
+  z-index: 1000;
+}
+
+.card-small-img img{
+  height: 175px;
+  width:175px;
+}
+
+.card-bottom {
+  background-color: #f5f5f5;
+  border-radius: 20px;
+ display: flex;
+ align-items: center;
+  padding: 10px 15px;
+  flex:1;
+}
+
+.circle-type{
+  height: 2rem;
+  width:2rem;
+
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.circle-type img {
+  flex:1;
+}
+
+/* ------------------------------------Card-------------------------------------------- */
+
+.card {
+  height: 640px;
+  width: 360px;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 5px -7px 13px 0px #242632a6;
+  display:flex;
+  flex-direction: column;
+
+}
+
+/* ----------------------Card-Header------------------------- */
+
+.card-title {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 84px;
+}
+
+#close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#card-nr {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+}
+
+/* ----------------------Card-img------------------------- */
+
+.card-img {
+  height: 200px;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: -40px;
+  background-image: url("./assets/img/pokeball-weiss2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  padding: 0 20px;
+}
+
+.card-img img {
+  height: 200px;
+  z-index: 100;
+}
+
+/* ----------------------Card-Infos------------------------- */
+
+.card-info-container {
+  background-color: #151b25;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 50px 20px 0 20px;
+  display:flex;
+  flex-direction: column;
+  flex:1;
+}
+
+.card-menu {
+  justify-content: space-between;
+  gap: 5px;
+  width: 100%;
+  height: auto;
+}
+
+.menu-left-btn {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.menu-right-btn {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.card-info {
+  flex: 1;
+  padding: 20px 0;
+}
+
+/* ----------------------main-Info------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+  vertical-align: top;
+}
+
+td:first-child {
+  white-space: nowrap;
+  width: 1%;
+}
+
+td:last-child {
+  word-wrap: break-word;
+  width: 100%;
+}
+
+/* ----------------------stats-info------------------------- */
+
+.progress-container {
+  width: 100%;
+  max-width: 400px;
+  height: 1.25rem;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: rgb(95, 166, 175);;
+  border-radius: 15px;
+  transition: width 0.4s ease; /* Animation für weichen Übergang */
+}
+
+/* ----------------------evo-chain------------------------- */
+
+.flex-center{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.evo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.evo img {
+  width: 80px;
+  padding-bottom: 0.75rem;
+}
+
+.evo-title{
+  font-size: 1rem;
+}
+
+/* ------------------------------------Footer-------------------------------------------- */
+
+footer {
+  background-color: #151b25;
+  min-height: 90px;
+  color: #fff;
+  padding: 10px 50px;
+  display: flex;
+  align-items: center;
+}
+
+/* ------------------------------------Responsiv-------------------------------------------- */
+
+/* @media screen and (max-width: 860px) {
+
+} */

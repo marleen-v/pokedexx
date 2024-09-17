@@ -1,0 +1,99 @@
+.full-width {
+  width: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.fx-col {
+  flex-direction: column;
+}
+
+.menu-btn {
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #314659;
+  padding: 7px 7px;
+}
+
+.menu-btn:hover {
+  background-color:#40607E ;
+} 
+
+.manu-btn:focus {
+  background-color: #FFB800;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  vertical-align: -0.125em;
+  fill:#fff;
+  z-index:2000;
+}
+
+.icon-small{
+  width: 1rem;
+  height: 1rem;
+}
+
+.card-padding {
+  padding: 20px 15px;
+}
+
+.bd-radius-bt {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.bd-radius-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* .card-color {
+  background-color: rgb(95, 166, 175);
+} */
+
+
+.type-fire {
+  background-color: rgb(139, 39, 39);
+}
+
+
+.type-water {
+  background-color: rgb(38, 178, 221);
+}
+
+.type-grass{
+  background-color: rgb(78, 184, 57);
+}
+
+dialog {
+  width: 600px;
+  height: 370px;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+/* Zentrieren des Dialogs */
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.8); 
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+
+.d_none {
+  display:none;
+}
