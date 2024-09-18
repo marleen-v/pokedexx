@@ -10,12 +10,18 @@
   flex-direction: column;
 }
 
+.btn-active-font{
+  color:#151b25;
+  font-weight: 700;;
+}
+
 .menu-btn {
   width:100%;
   justify-content: center;
   align-items: center;
   background-color: #314659;
   padding: 7px 7px;
+  
 }
 
 .menu-btn:hover {
@@ -29,8 +35,6 @@
 .icon {
   width: 2rem;
   height: 2rem;
-  vertical-align: -0.125em;
-  fill:#fff;
   z-index:2000;
 }
 
@@ -38,6 +42,12 @@
   width: 1rem;
   height: 1rem;
 }
+
+.arrow-icon {
+  height:1.5rem;
+  width:1.5rem;
+}
+
 
 .card-padding {
   padding: 20px 15px;
@@ -53,23 +63,8 @@
   border-top-right-radius: 10px;
 }
 
-/* .card-color {
-  background-color: rgb(95, 166, 175);
-} */
 
 
-.type-fire {
-  background-color: rgb(139, 39, 39);
-}
-
-
-.type-water {
-  background-color: rgb(38, 178, 221);
-}
-
-.type-grass{
-  background-color: rgb(78, 184, 57);
-}
 
 dialog {
   width: 600px;
@@ -96,4 +91,187 @@ body.no-scroll {
 
 .d_none {
   display:none;
+}
+
+/* -----------------Load-Spinner---------------*/
+
+   /* Der Spinner-Container */
+   .spinner {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    position: relative;
+  }
+
+  /* Das Bild, das sich dreht */
+  .spinner-img {
+    width: 100%;
+    height: 100%;
+    animation: spin 2s linear infinite;
+  }
+
+  .spin {
+    animation: spin 2s linear infinite;
+  }
+
+  /* Animation für die Drehung */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+/* -------------------alle Farben der jeweiligen Pokemon-Typen */
+
+.type-fire {
+  background-color: #EE8130;
+   
+}
+
+
+.type-water {
+  background-color: #6390F0;
+}
+
+.type-grass{
+  background-color: #7AC74C;
+}
+
+.type-bug{
+  background-color: #A6B91A;
+}
+
+.type-dark{
+  background-color: #705746;
+}
+
+.type-dragon{
+  background-color: #6F35FC;
+}
+
+.type-electric{
+  background-color: #d3af1f;
+}
+
+.type-fairy{
+  background-color: #D685AD;
+}
+
+.type-fighting{
+  background-color: #C22E28;
+}
+
+.type-flying{
+  background-color: #A98FF3;
+}
+
+.type-ghost{
+  background-color: #735797;
+}
+
+.type-ground{
+  background-color: #E2BF65;
+}
+
+.type-ice{
+  background-color: #96D9D6;
+}
+
+.type-normal{
+  background-color: #A8A77A;
+}
+
+.type-poison{
+  background-color: #46a33e;
+}
+
+.type-psychic{
+  background-color: #F95587;
+}
+
+.type-rock{
+  background-color: #B6A136;
+}
+
+.type-steel{
+  background-color: #B7B7CE;
+}
+
+
+.type-fire:hover {
+  background-color: #EE8130;
+ 
+}
+
+
+.type-water:hover {
+  background-color: #6390F0;
+}
+
+.type-grass:hover{
+  background-color: #7AC74C;
+}
+
+.type-bug:hover{
+  background-color: #A6B91A;
+}
+
+.type-dark:hover{
+  background-color: #705746;
+}
+
+.type-dragon:hover{
+  background-color: #6F35FC;
+}
+
+.type-electric:hover{
+  background-color: #d3af1f;
+}
+
+.type-fairy:hover{
+  background-color: #D685AD;
+}
+
+.type-fighting:hover{
+  background-color: #C22E28;
+}
+
+.type-flying:hover{
+  background-color: #A98FF3;
+}
+
+.type-ghost:hover{
+  background-color: #735797;
+}
+
+.type-ground:hover{
+  background-color: #E2BF65;
+}
+
+.type-ice:hover{
+  background-color: #96D9D6;
+}
+
+.type-normal:hover{
+  background-color: #A8A77A;
+}
+
+.type-poison:hover{
+  background-color: #46a33e;
+}
+
+.type-psychic:hover{
+  background-color: #F95587;
+}
+
+.type-rock:hover{
+  background-color: #B6A136;
+}
+
+.type-steel:hover{
+  background-color: #B7B7CE;
 }

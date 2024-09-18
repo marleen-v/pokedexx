@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/assets/fonts/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/fontawesome.css" rel="stylesheet" />
-    <link href="/assets/fonts/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/brands.css" rel="stylesheet" />
-    <link href="/assets/fonts/fontawesome-free-6.6.0-web/fontawesome-free-6.6.0-web/css/solid.css" rel="stylesheet" />
+
     <script src="./db.js"></script>
     <script src="./scripts/template.js"></script>
     <script src="./scripts/assets.js"></script>
@@ -35,14 +33,23 @@
     </header>
 
     <main>
-      <div id="content">
+      <div class="wrapper">
+        <div id="content"></div>
+        <div class="spinner">
+          <img src="./assets/img/pokeball-weiss.png" alt="Loading Spinner" class="spinner-img">
+        </div>
+        <div class="load-btn-container">
+          <button onclick="renderMorePokemon()" class="load-btn">Load More</button>
+        </div>
         
-      </div>
-      <div id="pokemon-info-card">
-        
-      </div>
-
       
+      </div>
+      <div class="info-conatiner">
+        <div id="pokemon-info-card"></div>
+      </div>
+      
+       
+    
     </main>
 
     <footer class="footer-wrapper">
