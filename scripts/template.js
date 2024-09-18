@@ -6,7 +6,7 @@ function getPokemonsTemplateHTML(pokemonNr, pokemonData) {
   let typeClass = "type-" + pokemonType;
 
   return `
-    <button class="card-small-btn" onclick="openCardInfo(${pokemonNr})">
+    <button class="card-small-btn" onclick="openCardInfo(${pokemonNr}, 'main-btn')">
         <div class="card-small ${typeClass}" id="card">
           <div class="card-small-title d-flex bd-radius-top">
             <span class="card-small-nr">#${pokemonNr}</span>
@@ -59,7 +59,7 @@ function getInfoTemplateHTML(pokemonNr, pokemonData) {
             </button>
         </div>
         <div class="card-img d-flex">
-          <button id="arrow-left" onclick="showPreviousPokemon(${pokemonNr})">
+          <button id="arrow-left" onclick="showPreviousPokemon(${pokemonNr}, 'main-btn')">
             <img
               class="arrow-icon"
               src="./assets/icons/chevron-left-solid.svg"
@@ -71,7 +71,7 @@ function getInfoTemplateHTML(pokemonNr, pokemonData) {
             id="card-img"
             class="card-pokemon-img"
           />
-          <button id="arrow-right" onclick="showNextPokemon(${pokemonNr})">
+          <button id="arrow-right" onclick="showNextPokemon(${pokemonNr}, 'main-btn')">
             <img
               class="arrow-icon"
               src="./assets/icons/chevron-right-solid.svg"
@@ -80,7 +80,7 @@ function getInfoTemplateHTML(pokemonNr, pokemonData) {
         </div>
         <div class="card-info-container d-flex card-padding bd-radius-bt">
           <div class="card-menu d-flex">
-            <button id="main-btn" class=" menu-left-btn menu-btn d-flex ${typeClass}" onclick="showMainInfo(${pokemonNr}, 'main-btn')">main</button>
+            <button id="main-btn" class=" menu-left-btn menu-btn d-flex " onclick="showMainInfo(${pokemonNr}, 'main-btn')">main</button>
             <button id="stats-btn" class="menu-center-btn menu-btn d-flex" onclick="showStatsInfo(${pokemonNr}, 'stats-btn')">stats</button>
             <button id="evo-chain-btn" class="menu-right-btn menu-btn d-flex" onclick="showEvolutionChain(${pokemonNr}, 'evo-chain-btn')">evo-chain</button>
           </div>
@@ -172,4 +172,9 @@ function renderStatsTemplateHTML() {
         </tr>
       </table>
   `;
+}
+
+// für den Evolution-Chain:
+function getPokemonImage(pokemonId) {   
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
 }

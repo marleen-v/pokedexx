@@ -56,7 +56,7 @@ async function getEvolutionChain(evolutionChainUrl) {
 
 // Pokemon rendern
 
-async function renderPokemon() {
+/* async function renderPokemon() {
   const contentRef = document.getElementById("content");
 
     for (pokemonNr = currentPokemons + 1; pokemonNr <= (addPokemon + currentPokemons) ; pokemonNr++) {
@@ -68,41 +68,42 @@ async function renderPokemon() {
       renderCricleTypes(pokemonNr, pokemonData);
     }
     currentPokemons += 10;
-  } 
+  } */
 
 function renderMorePokemon() {
   renderPokemon();
  
-}
+} 
 
-/* async function renderPokemon() {
+async function renderPokemon() {
   const contentRef = document.getElementById("content");
 
-  if (pokemonCount == 10) {
-    for (let pokemonNr = 1; pokemonNr <= pokemonCount; pokemonNr++) {
-      const pokemonData = await getPokemonData(pokemonNr);
-     
+  // Spinner anzeigen, bevor die Pokémon-Daten geladen werden
+  showLoadingSpinner();
 
+  // Warte eine kleine Zeitspanne (optional), um den Spinner kurz zu zeigen
+  await new Promise(resolve => setTimeout(resolve, 500)); // 500ms warten (optional)
+
+  try {
+    // Warten, bis der Spinner vollständig angezeigt wurde
+    for (pokemonNr = currentPokemons + 1; pokemonNr <= (addPokemon + currentPokemons); pokemonNr++) {
+      const pokemonData = await getPokemonData(pokemonNr);
+      
+      // Füge Pokémon-Daten hinzu (erst nach dem Verschwinden des Spinners)
       contentRef.innerHTML += getPokemonsTemplateHTML(pokemonNr, pokemonData);
 
       renderCricleTypes(pokemonNr, pokemonData);
     }
-    pokemonCount += 1;
-  } else {
-    for (
-      let pokedexNr = pokemonCount;
-      pokedexNr <= pokemonCount + 9;
-      pokedexNr++
-    ) {
-      const pokemonData = await getPokemonData(pokedexNr);
 
-      contentRef.innerHTML += getPokemonsTemplateHTML(pokedexNr, pokemonData);
-
-      renderCricleTypes(pokedexNr, pokemonData);
-    }
-    pokemonCount += 10;
+    // Nach dem Abrufen der Pokémon-Daten den Fortschritt um 10 erhöhen
+    currentPokemons += 10;
+  } catch (error) {
+    console.error("Fehler beim Laden der Pokémon-Daten:", error);
+  } finally {
+    // Spinner ausblenden, bevor die neuen Pokémon angezeigt werden
+    hideLoadingSpinner();
   }
-} */
+}
 
 
 function renderCricleTypes(pokemonNr, pokemonData) {
@@ -120,17 +121,26 @@ function renderCricleTypes(pokemonNr, pokemonData) {
 }
 
 
+function showLoadingSpinner() {
+  const spinner = document.getElementById('spinner');
+  spinner.style.display = 'flex';
+}
+
+// Spinner verstecken
+function hideLoadingSpinner() {
+  const spinner = document.getElementById('spinner');
+  spinner.style.display = 'none';
+}
 
 
-
-async function openCardInfo(pokemonNr) {
+async function openCardInfo(pokemonNr, btnId) {
   const contentInfoRef = document.getElementById("pokemon-info-card");
 
   const pokemonData = await getPokemonData(pokemonNr);
 
   contentInfoRef.innerHTML = getInfoTemplateHTML(pokemonNr, pokemonData);
 
-  showMainInfo(pokemonNr);
+  showMainInfo(pokemonNr, btnId);
 }
 
 function closeCardInfo() {
@@ -138,15 +148,6 @@ function closeCardInfo() {
 
   ContentInfoRef.innerHTML = "";
 }
-
-/* async function showActiveMenuBtn(pokemonData) {
-  const mainBtnRef = document.getElementById("main-btn");
-  const pokemonType = pokemonData.types[0].type.name; 
-  const typeClass = "type-" + pokemonType;
-
-  mainBtnRef.classList.add("type-" + typeClass);
-
-} */
 
 function toggleActiveButton(pokemonData, clickedButtonId) {
   const buttons = document.querySelectorAll(".menu-btn");
@@ -181,26 +182,26 @@ async function showStatsInfo(pokemonNr, btnId) {
   toggleActiveButton(pokemonData, btnId);
 }
 
-async function showNextPokemon(pokemonNr) {
+async function showNextPokemon(pokemonNr,btnId) {
   const pokemonData = await getAllPokemons();
   let count = pokemonData.count;
 
   if (pokemonNr < count) {
     pokemonNr += 1;
-    openCardInfo(pokemonNr);
+    openCardInfo(pokemonNr, btnId);
+   
   }
 }
 
-function showPreviousPokemon(pokemonNr) {
+function showPreviousPokemon(pokemonNr,btnId) {
   if (pokemonNr > 1) {
     pokemonNr = pokemonNr - 1;
-    openCardInfo(pokemonNr);
+    openCardInfo(pokemonNr, btnId);
+  
   }
 }
 
-function getPokemonImage(pokemonId) {
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
-}
+
 
 function extractEvolutionChain(evolutionData) {
   let evolutions = [];
@@ -241,7 +242,7 @@ function displayEvolutionChain(evolutionChain) {
 
     // Pfeil hinzufügen, wenn es nicht das letzte Pokémon ist
     if (index < evolutionChain.length - 1) {
-      evoChainRef.innerHTML += '<div class="arrow">→</div>';
+      evoChainRef.innerHTML += '<div class="arrow"><img src="./assets/icons/chevron-right-solid.svg" class="icon-small"></div>';
     }
   });
 }

@@ -93,36 +93,29 @@ body.no-scroll {
   display:none;
 }
 
-/* -----------------Load-Spinner---------------*/
+/* -----------------Loading-Spinner---------------*/
 
-   /* Der Spinner-Container */
-   .spinner {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    position: relative;
-  }
+.spinner {
+  display: none; 
+ /*  transform: translate(-50%, -50%); */
+  justify-content: center;
+}
 
-  /* Das Bild, das sich dreht */
-  .spinner-img {
-    width: 100%;
-    height: 100%;
-    animation: spin 2s linear infinite;
-  }
+/* Animation des Spinner-Bildes */
+.spinner-img {
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite; /* Kontinuierliche Drehung */
+}
 
-  .spin {
-    animation: spin 2s linear infinite;
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
-
-  /* Animation für die Drehung */
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
   }
+}
 
 
 /* -------------------alle Farben der jeweiligen Pokemon-Typen */
