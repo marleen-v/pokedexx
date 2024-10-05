@@ -1,7 +1,14 @@
 
 function openCardInfo(pkmNr, btnId) {
     const contentInfoRef = document.getElementById("pokemon-info-card");
-  
+    const placeholderRef = document.getElementById("placeholder"); 
+    const cardInfoRef = document.getElementById("pkm-card");
+    const bodyRef = document.getElementsByTagName("body")[0];
+
+    placeholderRef.classList.remove("d_none")
+    bodyRef.classList.add("no-scroll");
+    cardInfoRef.classList.add("info-conatiner");
+    
     contentInfoRef.innerHTML = getInfoTemplateHTML(pkmNr);
   
     showMainInfo(pkmNr, btnId);
@@ -9,7 +16,15 @@ function openCardInfo(pkmNr, btnId) {
   
   function closeCardInfo() {
     const ContentInfoRef = document.getElementById("pokemon-info-card");
-  
+    const placeholderRef = document.getElementById("placeholder"); 
+    const cardInfoRef = document.getElementById("pkm-card");
+    const bodyRef = document.getElementsByTagName("body")[0];
+
+    placeholderRef.classList.add("d_none")
+    bodyRef.classList.remove("no-scroll");
+    cardInfoRef.classList.remove("info-conatiner");
+    
+   
     ContentInfoRef.innerHTML = "";
   }
   
@@ -36,7 +51,7 @@ function openCardInfo(pkmNr, btnId) {
   
   function showStatsInfo(pkmNr, btnId) {
     const mainInfoRef = document.getElementById("card-info");
-    mainInfoRef.innerHTML = renderStatsTemplateHTML(pkmNr);
+    mainInfoRef.innerHTML = getStatsTemplateHTML(pkmNr);
     updateProgressBars(pkmNr);
     toggleActiveButton(pkmNr, btnId);
   }

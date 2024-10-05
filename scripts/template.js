@@ -120,7 +120,7 @@ function getMainTemplateHTML(pkmNr) {
   `;
 }
 
-function renderStatsTemplateHTML() {
+function getStatsTemplateHTML() {
   return `
     
       <table>

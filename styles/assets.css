@@ -65,7 +65,7 @@
 
 
 
-dialog {
+/* dialog {
   width: 600px;
   height: 370px;
   border: none;
@@ -73,10 +73,10 @@ dialog {
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   position: relative;
-}
+} */
 
 /* Zentrieren des Dialogs */
-dialog::backdrop {
+/* dialog::backdrop {
   background: rgba(0, 0, 0, 0.8); 
   position: fixed;
   width: 100vw;
@@ -85,7 +85,7 @@ dialog::backdrop {
 
 body.no-scroll {
   overflow: hidden;
-}
+} */
 
 
 .d_none {

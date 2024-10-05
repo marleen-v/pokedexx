@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="./styles/assets.css" />
     <link rel="stylesheet" href="./style.css" />
 
+    <link
+    rel="icon"
+    type="image/png"
+    href=".\assets\img\Logo\pokemonball-logo.png"
+  />
   
     <title>Pokedex</title>
   </head>
@@ -26,32 +31,33 @@
         />
         <div class="search-field">
           <label for="search-field"></label>
-          <input type="text" name="search-field" id="search-field" onkeyup="filterAndShowNames()">
-          <div id="info-search-field" class="info-search-field d_none">At least 3 letters required</div
-          </div>
+          <input type="text" name="search-field" id="search-field" placeholder="Search for a Pokemon" style=" padding:10px" onkeyup="filterAndShowNames()">
+          <div id="info-search-field" class="info-search-field d_none">3 letters required</div>
+        </div>
         
       </div>
     </header>
 
     <main>
-      <div class="wrapper">
+      <section class="wrapper" id="wrapper">
+        <div class="primary-content">
         <div id="content"></div>
+        
         <div class="spinner" id="spinner">
           <img src="./assets/img/pokeball-weiss.png" alt="Loading Spinner" class="spinner-img">
         </div>
         <div class="load-btn-container" id="load-btn">
           <button onclick="renderMorePokemon()" class="load-btn">Load More</button>
         </div>
-        
-      
       </div>
-      <div class="info-conatiner ">
+      <section class="d_none padding-right" id="placeholder"></section>
+      
+      </section>
+      
+      <aside id="pkm-card" class="info-conatiner">
         <div id="pokemon-info-card"></div>
-      </div>
-      
-       
-    
-    </main>
+      </aside>
+     </main>
 
     <footer class="footer-wrapper">
       <a href="./impressum.html">Impressum</a>
