@@ -93,7 +93,6 @@ function getMainTemplateHTML(pkmNr) {
   const pokemonAbilities = () =>
     currentList[pkmNr].abilities.map((item) => item.ability.name).join(", ");
   const pokemonAllAbilites = pokemonAbilities();
-  let pokemonName = currentList[pkmNr].name;
   const pokemonType = () =>
     currentList[pkmNr].types.map((item) => item.type.name).join(", ");
   const pokemonAllTypes = pokemonType();

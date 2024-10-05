@@ -69,7 +69,6 @@ async function updateProgressBars(pkmNr) {
     });
   }
 
-
   async function getEvolutionChain(evolutionChainUrl) {
     try {
       const response = await fetch(evolutionChainUrl);
@@ -137,8 +136,6 @@ async function updateProgressBars(pkmNr) {
     }
   }
   
-
-
 
 
 /*   async function showNextPokemon(pokemonNr, btnId) {
