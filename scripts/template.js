@@ -1,15 +1,15 @@
-function getPokemonsTemplateHTML(pokemonNr, pokemonData) {
-  let pokemonName = pokemonData.name;
-  let pokemonImg = pokemonData.sprites.other["official-artwork"].front_default;
-  let pokemonType = pokemonData.types[0].type.name;
+function getPokemonsTemplateHTML(pkmNr) {
+  let pokemonName = currentList[pkmNr].name;
+  let pokemonImg = currentList[pkmNr].sprites.other["official-artwork"].front_default;
+  let pokemonType = currentList[pkmNr].types[0].type.name;
+  let pokemonId = currentList[pkmNr].id;
 
   let typeClass = "type-" + pokemonType;
 
   return `
-    <button class="card-small-btn" onclick="openCardInfo(${pokemonNr}, 'main-btn')">
+    <button class="card-small-btn" onclick="openCardInfo(${pkmNr}, 'main-btn')">
         <div class="card-small ${typeClass}" id="card">
           <div class="card-small-title d-flex bd-radius-top">
-            <span class="card-small-nr">#${pokemonNr}</span>
             <h2 id="card-name">${pokemonName}</h2>
           </div>
           <div class="card-small-img d-flex ">
@@ -22,34 +22,39 @@ function getPokemonsTemplateHTML(pokemonNr, pokemonData) {
           </div>
     
           <div class="card-bottom">
-
+          <div class="card-circle">
+         
           </div>
+           <div class="card-small-nr">#${pokemonId}</div>
         </div>
       </button>
     `;
 }
 
-function getCircleTypesTemplateHTML(pokemonData, pokemonType) {
-  let pokemonName = pokemonData.name;
+
+function getCircleTypesTemplateHTML(pkmNr, pokemonType) {
+  let pokemonName = currentList[pkmNr].name;
   let typeClass = "type-" + pokemonType;
   return `
-            <div class="circle-type ${typeClass}" >
-              <img src="./assets/icons/${pokemonType}.svg" alt="${pokemonName}" class="type-icon" >
+            <div class="circle-type ${typeClass} tooltip" >
+              <img src="./assets/icons/${pokemonType}.svg" alt="${pokemonName}" class="type-icon " >
+              <span class="tooltiptext">Type: ${pokemonType} </span>
             </div>
   `;
 }
 
-function getInfoTemplateHTML(pokemonNr, pokemonData) {
-  const pokemonName = pokemonData.name;
+function getInfoTemplateHTML(pkmNr) {
+  const pokemonName = currentList[pkmNr].name;
   const pokemonImg =
-    pokemonData.sprites.other["official-artwork"].front_default;
-  const pokemonType = pokemonData.types[0].type.name;
+  currentList[pkmNr].sprites.other["official-artwork"].front_default;
+  const pokemonType = currentList[pkmNr].types[0].type.name;
   const typeClass = "type-" + pokemonType;
+  let pokemonId = currentList[pkmNr].id;
 
   return `
   <div class="card card-color ${typeClass}" id="card">
         <div class="card-title d-flex bd-radius-top">
-          <span id="card-nr">#${pokemonNr}</span>
+          <span id="card-nr">#${pokemonId}</span>
           <h2 id="card-name">${pokemonName}</h2>
           <button id="close-btn" onclick="closeCardInfo()">
             <img
@@ -59,30 +64,20 @@ function getInfoTemplateHTML(pokemonNr, pokemonData) {
             </button>
         </div>
         <div class="card-img d-flex">
-          <button id="arrow-left" onclick="showPreviousPokemon(${pokemonNr}, 'main-btn')">
-            <img
-              class="arrow-icon"
-              src="./assets/icons/chevron-left-solid.svg"
-            >
-          </button>
+
           <img
             src="${pokemonImg}"
             alt="${pokemonName}"
             id="card-img"
             class="card-pokemon-img"
           />
-          <button id="arrow-right" onclick="showNextPokemon(${pokemonNr}, 'main-btn')">
-            <img
-              class="arrow-icon"
-              src="./assets/icons/chevron-right-solid.svg"
-            >
-          </button>
+  
         </div>
         <div class="card-info-container d-flex card-padding bd-radius-bt">
           <div class="card-menu d-flex">
-            <button id="main-btn" class=" menu-left-btn menu-btn d-flex " onclick="showMainInfo(${pokemonNr}, 'main-btn')">main</button>
-            <button id="stats-btn" class="menu-center-btn menu-btn d-flex" onclick="showStatsInfo(${pokemonNr}, 'stats-btn')">stats</button>
-            <button id="evo-chain-btn" class="menu-right-btn menu-btn d-flex" onclick="showEvolutionChain(${pokemonNr}, 'evo-chain-btn')">evo-chain</button>
+            <button id="main-btn" class=" menu-left-btn menu-btn d-flex " onclick="showMainInfo(${pkmNr}, 'main-btn')">main</button>
+            <button id="stats-btn" class="menu-center-btn menu-btn d-flex" onclick="showStatsInfo(${pkmNr}, 'stats-btn')">stats</button>
+            <button id="evo-chain-btn" class="menu-right-btn menu-btn d-flex" onclick="showEvolutionChain(${pkmNr}, ${pokemonId}, 'evo-chain-btn')">evo-chain</button>
           </div>
           <div class="card-info" id="card-info">
 
@@ -92,12 +87,16 @@ function getInfoTemplateHTML(pokemonNr, pokemonData) {
   `;
 }
 
-function getMainTemplateHTML(pokemonData) {
-  const pokemonkWeight = pokemonData.weight / 10;
-  const pokemonHeight = pokemonData.height / 10;
+function getMainTemplateHTML(pkmNr) {
+  const pokemonkWeight = currentList[pkmNr].weight / 10;
+  const pokemonHeight = currentList[pkmNr].height / 10;
   const pokemonAbilities = () =>
-    pokemonData.abilities.map((item) => item.ability.name).join(", ");
+    currentList[pkmNr].abilities.map((item) => item.ability.name).join(", ");
   const pokemonAllAbilites = pokemonAbilities();
+  let pokemonName = currentList[pkmNr].name;
+  const pokemonType = () =>
+    currentList[pkmNr].types.map((item) => item.type.name).join(", ");
+  const pokemonAllTypes = pokemonType();
 
   return `
   <table>
@@ -112,6 +111,10 @@ function getMainTemplateHTML(pokemonData) {
               <tr>
                 <td>Abilities</td>
                 <td>${pokemonAllAbilites}</td>
+              </tr>
+              <tr>
+                <td>Type</td>
+                <td>${pokemonAllTypes}</td>
               </tr>
 
             </table>

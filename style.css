@@ -37,7 +37,7 @@ header {
   box-shadow: 1px 1px 2px 1px rgb(0 0 0 / 0.2);
   position: sticky;
   top: 0;
-  z-index: 2000;
+  z-index: 3000;
 }
 
 .header-wrapper {
@@ -50,7 +50,21 @@ header {
 .logo {
   height: 60px;
   width: auto;
+  cursor: pointer;
 }
+
+.search-field {
+  position: relative;
+}
+
+
+.info-search-field{
+  color:#d64040;
+  position: absolute;
+  left:0;
+  top:25px;
+}
+
 
 /* ------------------------------------Main Content-------------------------------------------- */
 
@@ -60,7 +74,7 @@ main {
   justify-content:center;
   padding: 50px;
   flex: auto;
-  
+  gap: 1.25rem;
 
   
 }
@@ -130,11 +144,10 @@ flex-direction: column;
 } 
 
 .card-small-nr {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
   font-size: 24px;
-  color:#fff;
+  color:#223d6b;
+  font-weight: 500;
+
   
 }
 
@@ -154,13 +167,20 @@ flex-direction: column;
 }
 
 
+
 .card-bottom {
   background-color: #f5f5f5;
   border-radius: 20px;
  display: flex;
  align-items: center;
+ justify-content: space-between;
   padding: 10px 15px;
   flex:1;
+  gap:5px;
+}
+
+.card-circle {
+  display:flex;
   gap:5px;
 }
 
@@ -171,6 +191,7 @@ flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2000;
 
 }
 
@@ -183,6 +204,10 @@ flex-direction: column;
   width: auto;
 }
 
+.no-pokemons{
+  font-size: 2rem;
+  color: #fff;
+}
 
 /* ------------------------------------Card-------------------------------------------- */
 
@@ -226,7 +251,7 @@ flex-direction: column;
 .card-img {
   height: 200px;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: -40px;
   background-image: url("./assets/img/pokeball-weiss2.png");
   background-repeat: no-repeat;
