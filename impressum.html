@@ -3,32 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./db.js"></script>
-    <script src="./scripts/templates.js"></script>
-    <script src="./scripts/assets.js"></script>
+
+    <script src="./scripts/getData.js"></script>
+    <script src="./scripts/template.js"></script>
+    <script src="./scripts/dialog.js"></script>
     <script src="./script.js"></script>
     <link rel="stylesheet" href="./styles/standard.css" />
     <link rel="stylesheet" href="./styles/assets.css" />
     <link rel="stylesheet" href="./style.css" />
 
-   
-    <title>Bestell-Dir-Was-Leckres</title>
+  
+    <title>Pokedex</title>
   </head>
   <body onload="init()">
     <header>
       <div class="header-wrapper">
-        <a href="./index.html"><img class="logo" src="./assets/img/Logo/Logo.png" alt="Logo" /></a>
-        <div></div>
-        <a href="#basket">
-          <img class="card-icon header-icon" src="./assets/icons/card.png" alt="" />
-        </a>
+        <a href="./index.html">
+        <img
+          class="logo"
+          src="./assets/img/Logo/pokemonball-logo.png"
+          alt="Logo"
+        />
+      </a>
       </div>
     </header>
 
     <main>
-        <div style="padding:60px">
-        <h1 style="color:#000">Impressum</h1>
-        <p style="padding-bottom: 40px">
+        <div style="padding:60px; color:#f3f3f3;width:100%; ">
+        <h1>Impressum</h1>
+        <p style="padding-bottom: 40px;">
             Marleen Vaalbrock <br>
             Friesenring 32 <br>
             48147 Münster </p>
@@ -46,293 +49,3 @@
 
   </body>
 </html>
-
-
-<div class="card card-color" id="card">
-  <div class="card-title d-flex bd-radius-top">
-    <span id="card-nr">#3</span>
-    <h2 id="card-name">Schiggi</h2>
-    <button id="close-btn">
-      <svg
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 384 512"
-      >
-        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-        />
-      </svg>
-    </button>
-  </div>
-  <div class="card-img d-flex">
-    <button id="arrow-left">
-      <svg
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 512"
-      >
-        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
-        />
-      </svg>
-    </button>
-    <img
-      src="./assets/img/schiggi.png"
-      alt="pokemon"
-      id="card-img"
-      class="card-pokemon-img"
-    />
-    <button id="arrow-right">
-      <svg
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 512"
-      >
-        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
-        />
-      </svg>
-    </button>
-  </div>
-  <div class="card-info-container d-flex card-padding bd-radius-bt">
-    <div class="card-menu d-flex">
-      <button class="menu-left-btn menu-btn d-flex">main</button>
-      <button class="menu-center-btn menu-btn d-flex">stats</button>
-      <button class="menu-right-btn menu-btn d-flex">evo-chain</button>
-    </div>
-    <div class="card-info">
-      <table>
-        <tr>
-          <td>Farbe</td>
-          <td>Blau</td>
-        </tr>
-        <tr>
-          <td>Größe</td>
-          <td>1,78 cm</td>
-        </tr>
-        <tr>
-          <td>Gewicht</td>
-          <td>75 kg</td>
-        </tr>
-        <tr>
-          <td>Material</td>
-          <td>Kunststoff, robust und leicht</td>
-        </tr>
-        <tr>
-          <td>Herstellungsjahr</td>
-          <td>2023</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="card card-color" id="card">
-  <div class="card-title d-flex bd-radius-top">
-    <span id="card-nr">#3</span>
-    <h2 id="card-name">Schiggi</h2>
-    <button id="close-btn">
-      <svg
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 384 512"
-      >
-        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-        />
-      </svg>
-    </button>
-  </div>
-  <div class="card-img d-flex">
-    <button id="arrow-left">
-      <svg
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 512"
-      >
-        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
-        />
-      </svg>
-    </button>
-    <img
-      src="./assets/img/schiggi.png"
-      alt="pokemon"
-      id="card-img"
-      class="card-pokemon-img"
-    />
-    <button id="arrow-right">
-      <svg
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 512"
-      >
-        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
-        />
-      </svg>
-    </button>
-  </div>
-  <div class="card-info-container d-flex card-padding bd-radius-bt">
-    <div class="card-menu d-flex">
-      <button class="menu-left-btn menu-btn d-flex">main</button>
-      <button class="menu-center-btn menu-btn d-flex">stats</button>
-      <button class="menu-right-btn menu-btn d-flex">evo-chain</button>
-    </div>
-    <div class="card-info">
-      <table>
-        <tr>
-          <td>Hp</td>
-          <td>
-            <div class="progress-container">
-              <div class="progress-bar" data-progress="40"></div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Attack</td>
-          <td>
-            <div class="progress-container">
-              <div class="progress-bar" data-progress="40"></div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Defense</td>
-          <td>
-            <div class="progress-container">
-              <div class="progress-bar" data-progress="40"></div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Special Attack</td>
-          <td>
-            <div class="progress-container">
-              <div class="progress-bar" data-progress="40"></div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Special Defense</td>
-          <td>
-            <div class="progress-container">
-              <div class="progress-bar" data-progress="40"></div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Speed</td>
-          <td>
-            <div class="progress-container">
-              <div class="progress-bar" data-progress="40"></div>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="card card-color" id="card">
-  <div class="card-title d-flex bd-radius-top">
-    <span id="card-nr">#3</span>
-    <h2 id="card-name">Schiggi</h2>
-    <button id="close-btn">
-      <svg
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 384 512"
-      >
-        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-        />
-      </svg>
-    </button>
-  </div>
-  <div class="card-img d-flex">
-    <button id="arrow-left">
-      <svg
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 512"
-      >
-        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
-        />
-      </svg>
-    </button>
-    <img
-      src="./assets/img/schiggi.png"
-      alt="pokemon"
-      id="card-img"
-      class="card-pokemon-img"
-    />
-    <button id="arrow-right">
-      <svg
-        class="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 512"
-      >
-        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <path
-          d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
-        />
-      </svg>
-    </button>
-  </div>
-  <div class="card-info-container d-flex card-padding bd-radius-bt">
-    <div class="card-menu d-flex">
-      <button class="menu-left-btn menu-btn d-flex">main</button>
-      <button class="menu-center-btn menu-btn d-flex">stats</button>
-      <button class="menu-right-btn menu-btn d-flex">evo-chain</button>
-    </div>
-    <div class="card-info flex-center">
-      <div class="evo">
-        <img src="./assets/img/schiggi.png" alt="Schiggi" />
-        <span class="evo-title">Squirtle</span>
-      </div>
-      <div>
-        <svg
-          class="icon icon-small"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 320 512"
-        >
-          <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-          <path
-            d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
-          />
-        </svg>
-      </div>
-
-      <div class="evo">
-        <img src="./assets/img/schillok.png" alt="Schillok" />
-        <span class="evo-title">Schillok</span>
-      </div>
-      <div>
-        <svg
-          class="icon icon-small"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 320 512"
-        >
-          <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-          <path
-            d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
-          />
-        </svg>
-      </div>
-      <div class="evo">
-        <img src="./assets/img/turtok.png" alt="Turtok" />
-        <span class="evo-title">Turtok</span>
-      </div>
-    </div>
-  </div>
-</div>
