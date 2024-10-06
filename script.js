@@ -6,7 +6,7 @@ let currentPkmCount = 0;
 let currentList = [];
 
 let allPkmCount;
-let allPkmList = [];
+/* let allPkmList = []; */
 
 let allPkmNames = [];
 let foundNames = [];
@@ -33,7 +33,7 @@ pokemonNr = 1;
 currentPkmCount = 0;
 currentList = [];
 allPkmCount;
-allPkmList = [];
+/* allPkmList = []; */
 
 
 

@@ -4,6 +4,18 @@ function openCardInfo(pkmNr, btnId) {
     const placeholderRef = document.getElementById("placeholder"); 
     const cardInfoRef = document.getElementById("pkm-card");
     const bodyRef = document.getElementsByTagName("body")[0];
+    const pkmCardRef = document.getElementsByTagName("button")[pkmNr];
+    const allPkmCardRef = document.getElementsByTagName("button");
+    
+    // Prüfen, ob bereits ein Pokemon markiert ist, wenn ja, wird dieses entfernt
+    for (let index = 0; index < allPkmCardRef.length; index++) {
+      const pkmCard = allPkmCardRef[index];
+      if(pkmCard.classList.contains("border")){
+        pkmCard.classList.remove("border")
+      }
+    }
+    
+    pkmCardRef.classList.toggle("border");
 
     placeholderRef.classList.remove("d_none")
     bodyRef.classList.add("no-scroll");
