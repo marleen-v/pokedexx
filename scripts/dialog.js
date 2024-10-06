@@ -4,17 +4,9 @@ function openCardInfo(pkmNr, btnId) {
     const placeholderRef = document.getElementById("placeholder"); 
     const cardInfoRef = document.getElementById("pkm-card");
     const bodyRef = document.getElementsByTagName("body")[0];
-    const pkmCardRef = document.getElementsByTagName("button")[pkmNr];
-    const allPkmCardRef = document.getElementsByTagName("button");
+    const pkmCardRef = document.querySelectorAll(".card-small-btn")[pkmNr];
     
-    // Prüfen, ob bereits ein Pokemon markiert ist, wenn ja, wird dieses entfernt
-    for (let index = 0; index < allPkmCardRef.length; index++) {
-      const pkmCard = allPkmCardRef[index];
-      if(pkmCard.classList.contains("border")){
-        pkmCard.classList.remove("border")
-      }
-    }
-    
+    checkIfPkmMarked  ();
     pkmCardRef.classList.toggle("border");
 
     placeholderRef.classList.remove("d_none")
@@ -25,19 +17,31 @@ function openCardInfo(pkmNr, btnId) {
   
     showMainInfo(pkmNr, btnId);
   }
+
   
   function closeCardInfo() {
     const ContentInfoRef = document.getElementById("pokemon-info-card");
     const placeholderRef = document.getElementById("placeholder"); 
     const cardInfoRef = document.getElementById("pkm-card");
     const bodyRef = document.getElementsByTagName("body")[0];
-
+    
+    checkIfPkmMarked ();
     placeholderRef.classList.add("d_none")
     bodyRef.classList.remove("no-scroll");
     cardInfoRef.classList.remove("info-conatiner");
     
    
     ContentInfoRef.innerHTML = "";
+  }
+
+  function checkIfPkmMarked () {
+    const allPkmCardRef = document.querySelectorAll(".card-small-btn");
+    for (let index = 0; index < allPkmCardRef.length; index++) {
+      const pkmCard = allPkmCardRef[index];
+      if(pkmCard.classList.contains("border")){
+        pkmCard.classList.remove("border")
+      }
+    }
   }
   
   function showMainInfo(pkmNr, btnId) {
