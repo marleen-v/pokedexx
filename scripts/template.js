@@ -64,14 +64,24 @@ function getInfoTemplateHTML(pkmNr) {
             </button>
         </div>
         <div class="card-img d-flex">
-
+          <button id="arrow-left" onclick="showPreviousPokemon(${pkmNr})">
+            <img
+              class="icon chevron"
+              src="./assets/img/chevron-left.svg"
+            >
+          </button>
           <img
             src="${pokemonImg}"
             alt="${pokemonName}"
             id="card-img"
             class="card-pokemon-img"
           />
-  
+        <button id="arrow-right" onclick="showNextPokemon(${pkmNr})">
+            <img
+              class="icon chevron"
+              src="./assets/img/chevron-right.svg"
+            >
+          </button>
         </div>
         <div class="card-info-container d-flex card-padding bd-radius-bt">
           <div class="card-menu d-flex">

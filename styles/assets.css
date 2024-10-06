@@ -45,6 +45,11 @@
 
 .arrow-icon {
   width:1.5rem;
+  
+}
+
+.chevron {
+  color:#0a3052;
 }
 
 
@@ -90,6 +95,10 @@ body.no-scroll {
 
 .d_none {
   display:none;
+}
+
+.v_none{
+  visibility: hidden;
 }
 
 /* -----------------Loading-Spinner---------------*/

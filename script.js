@@ -113,6 +113,11 @@ async function renderPokemonByNames() {
 
 
 function renderMorePokemon() {
+  let pkmNr = parseInt(document.getElementById("card-nr").innerHTML.replace("#", ""));
+  if (pkmNr == currentList.length) { // Prüfen, ob Pokemon letztes ist, wenn ja, wird Pfeil nach recht wieder sichtbar
+    pkmNr -= 1
+    checkIfFirstOrLastPkm(pkmNr);
+  }
   renderPokemon();
 }
 

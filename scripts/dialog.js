@@ -16,6 +16,8 @@ function openCardInfo(pkmNr, btnId) {
     contentInfoRef.innerHTML = getInfoTemplateHTML(pkmNr);
   
     showMainInfo(pkmNr, btnId);
+    checkIfFirstOrLastPkm(pkmNr);
+   
   }
 
   
@@ -29,20 +31,10 @@ function openCardInfo(pkmNr, btnId) {
     placeholderRef.classList.add("d_none")
     bodyRef.classList.remove("no-scroll");
     cardInfoRef.classList.remove("info-conatiner");
-    
-   
     ContentInfoRef.innerHTML = "";
   }
 
-  function checkIfPkmMarked () {
-    const allPkmCardRef = document.querySelectorAll(".card-small-btn");
-    for (let index = 0; index < allPkmCardRef.length; index++) {
-      const pkmCard = allPkmCardRef[index];
-      if(pkmCard.classList.contains("border")){
-        pkmCard.classList.remove("border")
-      }
-    }
-  }
+
   
   function showMainInfo(pkmNr, btnId) {
     const mainInfoRef = document.getElementById("card-info");
@@ -169,20 +161,25 @@ async function updateProgressBars(pkmNr) {
   
 
 
-/*   async function showNextPokemon(pokemonNr, btnId) {
-    const pokemonData = await getAllPkmData();
-    let count = pokemonData.count;
+  async function showNextPokemon(pokemonNr, btnId) {
   
-    if (pokemonNr < count) {
+    if (pokemonNr < currentList.length-1) {
       pokemonNr += 1;
       openCardInfo(pokemonNr, btnId);
     }
   }
   
   function showPreviousPokemon(pokemonNr, btnId) {
-    if (pokemonNr > 1) {
+    if (pokemonNr > 0) {
       pokemonNr = pokemonNr - 1;
       openCardInfo(pokemonNr, btnId);
     }
-  } */
-  
+  } 
+
+  function checkIfFirstOrLastPkm(pkmNr){
+    if (pkmNr == currentList.length -1) {
+      document.getElementById("arrow-right").classList.toggle("v_none");
+    }  else if (pkmNr == 0){
+      document.getElementById("arrow-left").classList.add("v_none");
+    } 
+  }

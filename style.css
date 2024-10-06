@@ -269,7 +269,7 @@ flex-direction: column;
 .card-img {
   height: 200px;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: -40px;
   background-image: url("./assets/img/pokeball-weiss2.png");
   background-repeat: no-repeat;
