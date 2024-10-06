@@ -31,14 +31,16 @@
         />
         <div class="search-field">
           <label for="search-field"></label>
-          <input type="text" name="search-field" id="search-field" placeholder="Search for a Pokemon" style=" padding:10px" onkeyup="filterAndShowNames()">
+          <input type="text" name="search-field" id="search-field" placeholder="Search for a Pokemon" style=" padding:10px 15px; border-radius:25px; font-family: 'raleway';" onkeyup="filterAndShowNames()">
           <div id="info-search-field" class="info-search-field d_none">3 letters required</div>
         </div>
+        
         
       </div>
     </header>
 
     <main>
+     
       <section class="wrapper" id="wrapper">
         <div class="primary-content">
         <div id="content"></div>
@@ -50,13 +52,17 @@
           <button onclick="renderMorePokemon()" class="load-btn">Load More</button>
         </div>
       </div>
-      <section class="d_none padding-right" id="placeholder"></section>
+      <div class="d_none padding-right" id="placeholder" style="position:relative; margin:0 auto;">
+        <div style="position:absolute; right:300px;">
+          <aside id="pkm-card" class="info-conatiner">
+            <div id="pokemon-info-card"></div>
+          </aside>
+        </div>
+      </div>
       
       </section>
       
-      <aside id="pkm-card" class="info-conatiner">
-        <div id="pokemon-info-card"></div>
-      </aside>
+ 
      </main>
 
     <footer class="footer-wrapper">

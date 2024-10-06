@@ -226,7 +226,7 @@ flex-direction: column;
 
 .info-conatiner{
   position: fixed;
-  right:50px;
+  right:50px; 
 }
 
 .card {
@@ -413,8 +413,9 @@ footer {
     z-index: 3000;
   }
   .padding-right{
-    display:none;
-  }
+    min-width:0; 
+  
+  }  
 
   .no-scroll {
     position:fixed;
