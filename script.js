@@ -53,9 +53,11 @@ function renderStartPkm() {
   allPkmCount;
   searchFieldRef.value = "";
   contentRef.innerHTML="";
-  LoadMoreBtnRef.classList.add("d-flex");
+  LoadMoreBtnRef.classList.remove("d_none");
+  
   closeCardInfo();
   renderPokemon();
+
 }
 
 function filterAndShowNames() {
@@ -66,9 +68,11 @@ function filterAndShowNames() {
 
   closeCardInfo();
   currentList = [];
-  LoadMoreBtnRef.style.display = 'none';
+  LoadMoreBtnRef.classList.add("d_none");
 
   if (filterWord == "") {
+    renderStartPkm();
+    infoRef.classList.add("d_none");
   } // Value is a number:
   else if (isNaN(filterWord) === false && filterWord <= allPkmCount) {
     infoRef.classList.add("d_none");

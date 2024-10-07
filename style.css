@@ -34,6 +34,7 @@ header {
   width: 100%;
   display: flex;
   padding: 10px 50px;
+  justify-content: center;
   box-shadow: 1px 1px 2px 1px rgb(0 0 0 / 0.2);
   position: sticky;
   top: 0;
@@ -41,6 +42,7 @@ header {
 }
 
 .header-wrapper {
+  max-width: 1920px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -226,7 +228,7 @@ flex-direction: column;
 
 .info-conatiner{
   position: fixed;
-  right:50px; 
+ 
 }
 
 .card {
@@ -421,4 +423,26 @@ footer {
     position:fixed;
    
    }
+}
+
+@media screen and (max-width: 400px) {
+  .card{
+    height: 615px;
+    width: 305px;
+    
+  }
+  .card-info-container{
+    padding: 50px 0 0 0;
+  }
+
+  header{
+    padding: 10px 20px;
+  }
+  .menu-right-btn{
+    margin-right:10px;
+  }
+
+  .menu-left-btn{
+    margin-left:10px;
+  }
 }

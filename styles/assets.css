@@ -69,7 +69,7 @@
 
 
 .d_none {
-  display:none;
+  display:none !important;
 }
 
 .v_none{
