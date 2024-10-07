@@ -68,31 +68,6 @@
 }
 
 
-
-
-/* dialog {
-  width: 600px;
-  height: 370px;
-  border: none;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  position: relative;
-} */
-
-/* Zentrieren des Dialogs */
-/* dialog::backdrop {
-  background: rgba(0, 0, 0, 0.8); 
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-}
-
-body.no-scroll {
-  overflow: hidden;
-} */
-
-
 .d_none {
   display:none;
 }
@@ -109,11 +84,11 @@ body.no-scroll {
   justify-content: center;
 }
 
-/* Animation des Spinner-Bildes */
+/* Animation  Spinner-img */
 .spinner-img {
   width: 100px;
   height: 100px;
-  animation: spin 2s linear infinite; /* Kontinuierliche Drehung */
+  animation: spin 2s linear infinite; /* continuous rotation */
 }
 
 @keyframes spin {
@@ -166,13 +141,12 @@ body.no-scroll {
   border-radius: 28px !important;
 }
 
-/* -------------------alle Farben der jeweiligen Pokemon-Typen */
+/* -------------------all colours of Pokemon-Types */
 
 .type-fire {
   background-color: #EE8130;
    
 }
-
 
 .type-water {
   background-color: #6390F0;

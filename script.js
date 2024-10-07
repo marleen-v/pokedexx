@@ -4,52 +4,64 @@ let pokemonNr = 1;
 
 let currentPkmCount = 0;
 let currentList = [];
-
 let allPkmCount;
-/* let allPkmList = []; */
-
 let allPkmNames = [];
 let foundNames = [];
 
 function init() {
- 
-  /* getAllPkmData(); */
   renderPokemon();
   getAllPokemonNames();
-  
 }
 
+async function renderPokemon() {
+  const contentRef = document.getElementById("content");
 
+  showLoadingSpinner();
+  
+  await new Promise((resolve) => setTimeout(resolve, 500));
 
+  try {
+    // Wait 500ms
+    for (pokemonNr; pokemonNr <= currentPkmCount + 10; pokemonNr++) {
+      const pokemonData = await getPokemonData(pokemonNr);
+      currentList.push(pokemonData);
+      let pkmNr = pokemonNr - 1; // because "currentList" starts with 0 
+      contentRef.innerHTML += getPokemonsTemplateHTML(pkmNr);
+      renderCricleTypes(pkmNr);
+    }
+    currentPkmCount = currentList.length;
+  } catch (error) {
+    console.error("Error loading Pokémon data:", error);
+  } finally {
+    hideLoadingSpinner();
+  }
+}
+
+function renderMorePokemon() {
+  addOrRemoveArrow()
+  renderPokemon();
+}
 
 function renderStartPkm() {
   const contentRef = document.getElementById("content");
   const LoadMoreBtnRef = document.getElementById("load-btn");
   const searchFieldRef = document.getElementById("search-field");
 
+  pokemonNr = 1;
+  currentPkmCount = 0;
+  currentList = [];
+  allPkmCount;
   searchFieldRef.value = "";
-
-pokemonNr = 1;
-currentPkmCount = 0;
-currentList = [];
-allPkmCount;
-/* allPkmList = []; */
-
-
-
-contentRef.innerHTML="";
-LoadMoreBtnRef.style.display = 'flex';
-closeCardInfo();
-renderPokemon();
+  contentRef.innerHTML="";
+  LoadMoreBtnRef.classList.add("d-flex");
+  closeCardInfo();
+  renderPokemon();
 }
-
-
 
 function filterAndShowNames() {
   const searchFieldRef = document.getElementById("search-field");
   const filterWord = searchFieldRef.value;
   const LoadMoreBtnRef = document.getElementById("load-btn");
-  const contentRef = document.getElementById("content");
   const infoRef = document.getElementById("info-search-field");
 
   closeCardInfo();
@@ -57,28 +69,37 @@ function filterAndShowNames() {
   LoadMoreBtnRef.style.display = 'none';
 
   if (filterWord == "") {
-  } //eingegebene Wert ist eine Nummer
+  } // Value is a number:
   else if (isNaN(filterWord) === false && filterWord <= allPkmCount) {
     infoRef.classList.add("d_none");
     pokemonNr = parseInt(filterWord);
     renderPkmByNumber(pokemonNr);
-  } //eingegebener Wert ist ein String
+  } //Value is a String
   else {
-    // Pokemon wird gesucht, wenn eingegebener Wert drei oder mehr Buchstaben hat
-    if (filterWord.length >= 3) {
-      infoRef.classList.add("d_none");
-      contentRef.innerHTML = "";
-
-      closeCardInfo();
-      foundNames = allPkmNames.filter((name) => name.includes(filterWord));
-      if (foundNames.length > 0) {
-        renderPokemonByNames();
-      } else {
-        contentRef.innerHTML = `<div class="no-pokemons"> <p>There are no Pokemons for you </p> </div>`;
-      }
-    } else {
-      infoRef.classList.remove("d_none"); // Hinweis-Nachricht für Suchfeld-Eingabe
+    checkNumberOfLetters();
     }
+}
+
+function checkNumberOfLetters() {
+  const searchFieldRef = document.getElementById("search-field");
+  const filterWord = searchFieldRef.value;
+  const infoRef = document.getElementById("info-search-field");
+  const contentRef = document.getElementById("content");
+
+  // Pokemon will be searched if the entered value has three or more letters
+  if (filterWord.length >= 3) {
+    infoRef.classList.add("d_none");
+    contentRef.innerHTML = "";
+
+    closeCardInfo();
+    foundNames = allPkmNames.filter((name) => name.includes(filterWord));
+    if (foundNames.length > 0) {
+      renderPokemonByNames();
+    } else {
+      contentRef.innerHTML = `<div class="no-pokemons"> <p>There are no Pokemons for you </p> </div>`;
+    }
+  } else {
+    infoRef.classList.remove("d_none"); // note for search field input
   }
 }
 
@@ -104,45 +125,6 @@ async function renderPokemonByNames() {
 
     contentRef.innerHTML += getPokemonsTemplateHTML(index);
     renderCricleTypes(index);
-  }
-}
-
-
-
-// Funktion zum Abrufen der Evolution Chain
-
-
-function renderMorePokemon() {
-  let pkmNr = parseInt(document.getElementById("card-nr").innerHTML.replace("#", ""));
-  if (pkmNr == currentList.length) { // Prüfen, ob Pokemon letztes ist, wenn ja, wird Pfeil nach recht wieder sichtbar
-    pkmNr -= 1
-    checkIfFirstOrLastPkm(pkmNr);
-  }
-  renderPokemon();
-}
-
-async function renderPokemon() {
-  const contentRef = document.getElementById("content");
-
-  showLoadingSpinner();
-
-  await new Promise((resolve) => setTimeout(resolve, 500));
-
-  try {
-    // Wartet 500ms
-    for (pokemonNr; pokemonNr <= currentPkmCount + 10; pokemonNr++) {
-      const pokemonData = await getPokemonData(pokemonNr);
-      currentList.push(pokemonData);
-      let pkmNr = pokemonNr - 1; // da "currentList" bei 0 anfängt
-      contentRef.innerHTML += getPokemonsTemplateHTML(pkmNr);
-      renderCricleTypes(pkmNr);
-    }
-    currentPkmCount = currentList.length;
-  } catch (error) {
-    console.error("Fehler beim Laden der Pokémon-Daten:", error);
-  } finally {
-    // Spinner ausblenden, bevor die neuen Pokémon angezeigt werden
-    hideLoadingSpinner();
   }
 }
 

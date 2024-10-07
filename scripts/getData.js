@@ -1,4 +1,3 @@
-// Funktion zum Abrufen der Pokémon-Daten eines einzelnen Pokemon
 async function getPokemonData(pokemonId) {
   try {
     const response = await fetch(`${baseUrl}pokemon/${pokemonId}`);
@@ -6,7 +5,7 @@ async function getPokemonData(pokemonId) {
 
     return data;
   } catch (error) {
-    console.error("Fehler beim Abrufen der Pokémon-Daten:", error);
+    console.error("Error loading Pokémon data:", error);
   }
 }
 
@@ -14,34 +13,22 @@ async function getAllPokemonNames() {
   try {
     const response = await fetch(`${baseUrl}pokemon?limit=1025&offset=0`);
     const data = await response.json();
-    allPkmNames = data.results.map((element) => element.name); //Array aus allen vorhandenen Pokemon-Namen
-    allPkmCount = data.count; //Anzahl vorhandener Pokemon
+    allPkmNames = data.results.map((element) => element.name); //Array of all existing Pokemon names
+    allPkmCount = data.count; //total number of all Pkms
     return data;
   } catch (error) {
-    console.error("Fehler beim Abrufen der Pokémon-Daten:", error);
+    console.error("Error loading Pokémon data:", error);
   }
 }
 
-// Funktion zum Abrufen der Pokémon-SpeciesDaten -> Evolution Chain
+// for evolution chain
 async function getSpeciesData(pokemonName) {
   try {
     const response = await fetch(`${baseUrl}pokemon-species/${pokemonName}`);
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Fehler beim Abrufen der Pokémon-Daten:", error);
+    console.error("Error loading Pokémon data:", error);
   }
 }
 
-// fürs weiterklicken im Dialog
-/*   async function getAllPkmData() {
-    for (let index = 0; index <= 2; index++) {
-      try {
-        const response = await fetch(`${baseUrl}pokemon/${index}`);
-        const data = await response.json();
-        allPkmList.push(data);
-      } catch (error) {
-        console.error("Fehler beim Abrufen der Pokémon-Daten:", error);
-      }
-    }
-  } */

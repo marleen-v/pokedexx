@@ -31,12 +31,10 @@ function getPokemonsTemplateHTML(pkmNr) {
     `;
 }
 
-
 function getCircleTypesTemplateHTML(pkmNr, pokemonType) {
   let pokemonName = currentList[pkmNr].name;
-  let typeClass = "type-" + pokemonType;
   return `
-            <div class="circle-type ${typeClass} tooltip" >
+            <div class="circle-type type-${pokemonType} tooltip" >
               <img src="./assets/icons/${pokemonType}.svg" alt="${pokemonName}" class="type-icon " >
               <span class="tooltiptext">Type: ${pokemonType} </span>
             </div>
@@ -48,11 +46,10 @@ function getInfoTemplateHTML(pkmNr) {
   const pokemonImg =
   currentList[pkmNr].sprites.other["official-artwork"].front_default;
   const pokemonType = currentList[pkmNr].types[0].type.name;
-  const typeClass = "type-" + pokemonType;
   let pokemonId = currentList[pkmNr].id;
 
   return `
-  <div class="card card-color ${typeClass}" id="card">
+  <div class="card card-color type-${pokemonType}" id="card">
         <div class="card-title d-flex bd-radius-top">
           <span id="card-nr">#${pokemonId}</span>
           <h2 id="card-name">${pokemonName}</h2>
@@ -100,11 +97,9 @@ function getInfoTemplateHTML(pkmNr) {
 function getMainTemplateHTML(pkmNr) {
   const pokemonkWeight = currentList[pkmNr].weight / 10;
   const pokemonHeight = currentList[pkmNr].height / 10;
-  const pokemonAbilities = () =>
-    currentList[pkmNr].abilities.map((item) => item.ability.name).join(", ");
+  const pokemonAbilities = () => currentList[pkmNr].abilities.map((item) => item.ability.name).join(", ");
   const pokemonAllAbilites = pokemonAbilities();
-  const pokemonType = () =>
-    currentList[pkmNr].types.map((item) => item.type.name).join(", ");
+  const pokemonType = () => currentList[pkmNr].types.map((item) => item.type.name).join(", ");
   const pokemonAllTypes = pokemonType();
 
   return `
@@ -186,7 +181,7 @@ function getStatsTemplateHTML() {
   `;
 }
 
-// für den Evolution-Chain:
+// for Evolution-Chain:
 function getPokemonImage(pokemonId) {   
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`;
 }
